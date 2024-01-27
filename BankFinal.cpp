@@ -25,9 +25,10 @@ int main() {
     string Name, lastName, Adress;
     int tel, year, month, day, ID, pass, mon = 0, plus = 0, sub = 0;
     int first;
-    welcome();
     do 
     {
+        input:
+    welcome();
         operation();
         cin >> first;
 
@@ -35,6 +36,7 @@ int main() {
         {
             pair<int, int> secretInfo = resecret();
             login(secretInfo.second, secretInfo.first);
+            customer(mon,plus,sub);
         } 
         else if (first == 2) 
         {
@@ -47,7 +49,7 @@ int main() {
             save(Name, lastName, Adress, pass, tel, year, month, day, ID);
             secret(ID, pass);
             cout << "Your account has been created successfully." << endl;
-            customer(mon,plus,sub);
+            goto input;
         } 
         else if (first == 3) 
         {
@@ -199,6 +201,7 @@ void information(string& Name, string& lastName, string& Adress, int& pass, int&
         cout << "Is your information correct? Enter 'n' if it is not: ";
         cin>>Is;
     } while (Is == 'N' || Is == 'n');
+    page();
 }
 
 int age(int year)
@@ -226,6 +229,7 @@ void login(int& pass1, int& ID1)
         {
             cout << "Login successful!" << endl;
             return;
+
         } 
         else 
         {
