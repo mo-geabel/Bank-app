@@ -304,13 +304,6 @@ void secret(int& ID, int& pass)
     sfile << ID << endl << pass << endl;
     sfile.close();
 }
-void secret(int& ID, int& pass) 
-{
-    ofstream sfile;
-    sfile.open("secret.txt", ios::app);
-    sfile << ID << endl << pass << endl;
-    sfile.close();
-}
 pair<int, int> resecret() 
 {
     int pass1 = 0;
